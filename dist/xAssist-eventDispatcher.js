@@ -8,14 +8,14 @@
 }(this, (function (exports) { 'use strict';
 
 function EventDispatcher(me){
-	this._parent=me;
+	this.defaultThis=me;
 	this._events={};
 	
 }
 EventDispatcher.prototype.registerEvent=function(eventName,defaultThis){
 	if(!this.hasEvent(eventName)){
 		this._events[eventName]={
-			thisArg:defaultThis||this._parent,
+			thisArg:defaultThis||this.defaultThis,
 			listeners:[]
 		};
 	}
