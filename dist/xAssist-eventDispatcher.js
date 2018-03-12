@@ -1,6 +1,6 @@
 // https://github.com/GregBee2/xassist-eventDispatcher#readme Version 0.0.3.
 // Copyright 2018 Gregory Beirens.
-// Created on Sun, 11 Mar 2018 14:53:27 GMT.
+// Created on Mon, 12 Mar 2018 10:15:17 GMT.
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
 	typeof define === 'function' && define.amd ? define(['exports'], factory) :
@@ -8,14 +8,15 @@
 }(this, (function (exports) { 'use strict';
 
 function EventDispatcher(me){
-	this.defaultThis=me;
+	this._parent=me;
 	this._events={};
 	
 }
+
 EventDispatcher.prototype.registerEvent=function(eventName,defaultThis){
 	if(!this.hasEvent(eventName)){
 		this._events[eventName]={
-			thisArg:defaultThis||this.defaultThis,
+			thisArg:defaultThis||this._parent,
 			listeners:[]
 		};
 	}
@@ -24,7 +25,7 @@ EventDispatcher.prototype.registerEvent=function(eventName,defaultThis){
 	}
 };
 EventDispatcher.prototype.hasEvent=function(eventName){
-	return this._events.hasOwnpropertyName(eventName);
+	return this._events.hasOwnProperty(eventName);
 };
 EventDispatcher.prototype.on=function(eventName,callBack,thisArg){
 	var listener={
@@ -55,12 +56,12 @@ EventDispatcher.prototype.fire=function(eventName,args){
 	if(this.hasEvent(eventName)){
 		defaultThis=this._events[eventName].thisArg;
 		for (let index = 0,l=this._events[eventName].listeners.length; index <l; index += 1) {
-            this._events[eventName].listeners[index].apply(
+            this._events[eventName].listeners[index].fn.apply(
 				this._events[eventName].listeners[index].thisArg||defaultThis,
 				args
 			);
         }
-		this._events[eventName]=this._events[eventName].filter(function(v){
+		this._events[eventName].listeners=this._events[eventName].listeners.filter(function(v){
 			return !v.once;
 		});
 	}
@@ -69,7 +70,7 @@ EventDispatcher.prototype.fire=function(eventName,args){
 
 EventDispatcher.prototype.off=function(eventName,callBack){
 	if(this.hasEvent(eventName)){
-		this._events[eventName]=this._events[eventName].filter(function(v){
+		this._events[eventName].listeners=this._events[eventName].listeners.filter(function(v){
 			return v.fn!==callBack;
 		});
 	}
