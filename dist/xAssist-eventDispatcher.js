@@ -1,6 +1,6 @@
-// https://github.com/GregBee2/xassist-eventDispatcher#readme Version 0.0.3.
+// https://github.com/GregBee2/xassist-eventDispatcher#readme Version 0.0.4.
 // Copyright 2018 Gregory Beirens.
-// Created on Mon, 12 Mar 2018 10:15:17 GMT.
+// Created on Mon, 12 Mar 2018 10:15:39 GMT.
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
 	typeof define === 'function' && define.amd ? define(['exports'], factory) :
