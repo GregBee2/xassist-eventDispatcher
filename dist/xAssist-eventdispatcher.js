@@ -1,8 +1,8 @@
 /**
 * @preserve
-* https://github.com/GregBee2/xassist-eventdispatcher#readme Version 0.0.8.
+* https://github.com/GregBee2/xassist-eventdispatcher#readme Version 0.0.9.
 *  Copyright 2018 Gregory Beirens.
-*  Created on Wed, 14 Mar 2018 12:26:39 GMT.
+*  Created on Wed, 14 Mar 2018 12:28:12 GMT.
 */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
@@ -12,13 +12,10 @@
 
 function EventDispatcher(me){
 	if ( !(this instanceof EventDispatcher) ){
-		 return new EventDispatcher();
+		return new EventDispatcher();
 	}
-     
-
 	this._parent=me;
 	this._events={};
-	
 }
 
 EventDispatcher.prototype.registerEvent=function(eventName,defaultThis){
