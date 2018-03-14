@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for dist\xAssist-eventDispatcher.js</title>
+    <title>Code coverage report for dist\xAssist-eventdispatcher.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -16,7 +16,7 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../index.html">all files</a> / <a href="index.html">dist/</a> xAssist-eventDispatcher.js
+      <a href="../index.html">all files</a> / <a href="index.html">dist/</a> xAssist-eventdispatcher.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
@@ -126,7 +126,13 @@
 81
 82
 83
-84</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+84
+85
+86
+87</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
@@ -157,18 +163,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -180,6 +174,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -209,9 +215,12 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// https://github.com/GregBee2/xassist-eventDispatcher#readme Version 0.0.4.
-// Copyright 2018 Gregory Beirens.
-// Created on Mon, 12 Mar 2018 10:15:39 GMT.
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+* @preserve
+* https://github.com/GregBee2/xassist-eventdispatcher#readme Version 0.0.4.
+*  Copyright 2018 Gregory Beirens.
+*  Created on Wed, 14 Mar 2018 12:02:58 GMT.
+*/
 (function (global, factory) {
 	typeof exports === 'object' &amp;&amp; typeof module !== 'undefined' ? factory(exports) :
 <span class="branch-1 cbranch-no" title="branch not covered" >	typeof define === 'function' &amp;&amp; define.amd ? define(['exports'], factory) :</span>
@@ -261,12 +270,12 @@ EventDispatcher.prototype.once=<span class="fstat-no" title="function not covere
 <span class="cstat-no" title="statement not covered" >		this._events[eventName].listeners.push(listener);</span>
 	}
 };
-EventDispatcher.prototype.fire=<span class="fstat-no" title="function not covered" >function(eventName,args){</span>
+EventDispatcher.prototype.fire=<span class="fstat-no" title="function not covered" >function(eventName/*,args*/){</span>
 <span class="cstat-no" title="statement not covered" >	var defaultThis;</span>
 <span class="cstat-no" title="statement not covered" >	var args=(Array.prototype.slice.call(arguments,1));</span>
 <span class="cstat-no" title="statement not covered" >	if(this.hasEvent(eventName)){</span>
 <span class="cstat-no" title="statement not covered" >		defaultThis=this._events[eventName].thisArg;</span>
-<span class="cstat-no" title="statement not covered" >		for (let index = 0,l=this._events[eventName].listeners.length; index &lt;l; index += 1) {</span>
+<span class="cstat-no" title="statement not covered" >		for (var index = 0,l=this._events[eventName].listeners.length; index &lt;l; index += 1) {</span>
 <span class="cstat-no" title="statement not covered" >            this._events[eventName].listeners[index].fn.apply(</span>
 				this._events[eventName].listeners[index].thisArg||defaultThis,
 				args
@@ -298,7 +307,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Mar 12 2018 11:15:40 GMT+0100 (Romance Standard Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Mar 14 2018 13:02:59 GMT+0100 (Romance Standard Time)
 </div>
 </div>
 <script src="../prettify.js"></script>

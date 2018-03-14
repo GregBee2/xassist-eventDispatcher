@@ -1,14 +1,14 @@
 {
   "name": "@xassist/xassist-eventdispatcher",
   "version": "0.0.4",
-  "description": "general helper functions for JavaScript objects ",
+  "description": "general eventdispatcher class ",
   "keywords": [
     "xAssist",
     "object",
-    "array-functionality",
-    "assign",
-    "forEach",
-    "map"
+    "customevents",
+    "eventhandler",
+    "fire",
+    "on"
   ],
   "bugs": {
     "email": "gregory.beirens@gmail.com"
@@ -18,13 +18,15 @@
     "name": "Gregory Beirens",
     "email": "gregory.beirens@gmail.com"
   },
-  "main": "dist/xAssist-eventDispatcher.js",
+  "main": "dist/xAssist-eventdispatcher.js",
   "scripts": {
     "pretest": "rimraf dist  && rollup -c",
-    "test": "istanbul cover node_modules/tape/bin/tape test/**/*-test.js",
+    "test": "istanbul cover node_modules/tape/bin/tape test/**/*-test.js && eslint index.js src",
+    "posttest": "npm run uglify",
     "build": "npm run test && git commit -am ",
-    "prepublishOnly": "npm version patch && npm run build  -- \"publish version latest version\"",
-    "postpublish": "git push && git push --tags"
+    "prepublishOnly": "npm version patch && npm run build  -- \"publish latest version\"",
+    "postpublish": "git push && git push --tags",
+    "uglify": "uglifyjs  --comments /^@preserve/ dist/xAssist-eventdispatcher.js -c -m -o dist/xAssist-eventdispatcher.min.js"
   },
   "files": [
     "dist",
@@ -41,7 +43,7 @@
   "dependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GregBee2/xassist-eventDispatcher"
+    "url": "git+https://github.com/GregBee2/xassist-eventdispatcher"
   },
-  "homepage": "https://github.com/GregBee2/xassist-eventDispatcher#readme"
+  "homepage": "https://github.com/GregBee2/xassist-eventdispatcher#readme"
 }

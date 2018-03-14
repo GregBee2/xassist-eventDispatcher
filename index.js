@@ -1,1 +1,1 @@
-export {default as EventDispatcher} from './src/eventDispatcher.js'
+export {default as EventDispatcher} from './src/eventdispatcher.js'

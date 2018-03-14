@@ -1,6 +1,9 @@
-// https://github.com/GregBee2/xassist-eventDispatcher#readme Version 0.0.4.
-// Copyright 2018 Gregory Beirens.
-// Created on Mon, 12 Mar 2018 10:15:39 GMT.
+/**
+* @preserve
+* https://github.com/GregBee2/xassist-eventdispatcher#readme Version 0.0.4.
+*  Copyright 2018 Gregory Beirens.
+*  Created on Wed, 14 Mar 2018 12:02:58 GMT.
+*/
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
 	typeof define === 'function' && define.amd ? define(['exports'], factory) :
@@ -50,12 +53,12 @@ EventDispatcher.prototype.once=function(eventName,callBack,thisArg){
 		this._events[eventName].listeners.push(listener);
 	}
 };
-EventDispatcher.prototype.fire=function(eventName,args){
+EventDispatcher.prototype.fire=function(eventName/*,args*/){
 	var defaultThis;
 	var args=(Array.prototype.slice.call(arguments,1));
 	if(this.hasEvent(eventName)){
 		defaultThis=this._events[eventName].thisArg;
-		for (let index = 0,l=this._events[eventName].listeners.length; index <l; index += 1) {
+		for (var index = 0,l=this._events[eventName].listeners.length; index <l; index += 1) {
             this._events[eventName].listeners[index].fn.apply(
 				this._events[eventName].listeners[index].thisArg||defaultThis,
 				args

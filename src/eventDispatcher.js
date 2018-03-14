@@ -42,12 +42,12 @@ EventDispatcher.prototype.once=function(eventName,callBack,thisArg){
 		this._events[eventName].listeners.push(listener);
 	}
 };
-EventDispatcher.prototype.fire=function(eventName,args){
+EventDispatcher.prototype.fire=function(eventName/*,args*/){
 	var defaultThis;
 	var args=(Array.prototype.slice.call(arguments,1));
 	if(this.hasEvent(eventName)){
 		defaultThis=this._events[eventName].thisArg;
-		for (let index = 0,l=this._events[eventName].listeners.length; index <l; index += 1) {
+		for (var index = 0,l=this._events[eventName].listeners.length; index <l; index += 1) {
             this._events[eventName].listeners[index].fn.apply(
 				this._events[eventName].listeners[index].thisArg||defaultThis,
 				args
