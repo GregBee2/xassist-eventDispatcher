@@ -1,5 +1,10 @@
 'use strict'
 export default function EventDispatcher(me){
+	if ( !(this instanceof EventDispatcher) ){
+		 return new EventDispatcher();
+	}
+     
+
 	this._parent=me;
 	this._events={}
 	
