@@ -33,11 +33,8 @@
     "src"
   ],
   "devDependencies": {
-    "jsdom": "^11.6.2",
     "rimraf": "^2.6.2",
     "rollup": "^0.56.3",
-    "rollup-plugin-json": "^2.3.0",
-    "rollup-plugin-node-resolve": "^3.0.3",
     "tape": "^4.9.0"
   },
   "dependencies": {},
