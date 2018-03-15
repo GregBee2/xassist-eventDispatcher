@@ -1,6 +1,6 @@
 {
   "name": "@xassist/xassist-eventdispatcher",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "general eventdispatcher class ",
   "keywords": [
     "xAssist",
@@ -19,7 +19,7 @@
     "email": "gregory.beirens@gmail.com"
   },
   "main": "dist/xAssist-eventdispatcher.js",
-  "module":"index",
+  "module": "index",
   "scripts": {
     "pretest": "rimraf dist  && rollup -c",
     "test": "istanbul cover node_modules/tape/bin/tape test/**/*-test.js && eslint index.js src",
