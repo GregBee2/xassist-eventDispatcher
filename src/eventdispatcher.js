@@ -1,16 +1,16 @@
 'use strict'
-export default function EventDispatcher(me){
+export default function EventDispatcher(){
 	if ( !(this instanceof EventDispatcher) ){
 		return new EventDispatcher();
 	}
-	this._parent=me;
+	//this._parent=me;
 	this._events={};
 }
 
 EventDispatcher.prototype.registerEvent=function(eventName,defaultThis){
 	if(!this.hasEvent(eventName)){
 		this._events[eventName]={
-			thisArg:defaultThis||this._parent,
+			thisArg:defaultThis||this,
 			listeners:[]
 		};
 	}
