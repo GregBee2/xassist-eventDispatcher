@@ -1,6 +1,6 @@
 {
   "name": "@xassist/xassist-eventdispatcher",
-  "version": "0.0.12",
+  "version": "1.0.0",
   "description": "general eventdispatcher class ",
   "keywords": [
     "xAssist",
